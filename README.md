@@ -15,3 +15,18 @@ Understanding MVC in PHP
 - Code refactoring
 - SQL
 - PDO
+
+## Note
+After cloning, create a config.php at the directory with these contents. 
+You can use the parameters from your Database.
+```php
+<?php
+return  [
+    'database'=> [
+        'dbname' => 'myapp',
+        'host' => '127.0.0.1',
+        'port' => 3306,
+        'charset' => 'utf8mb4'
+    ]
+];
+```

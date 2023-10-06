@@ -17,7 +17,7 @@ Understanding MVC in PHP
 - PDO
 
 ## Note
-After cloning, create a config.php at the directory with these contents. 
+After cloning, create a config.php at the root directory with these contents. 
 You can use the parameters from your Database.
 ```php
 <?php

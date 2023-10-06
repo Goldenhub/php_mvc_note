@@ -19,6 +19,7 @@ Understanding MVC in PHP
 ## Note
 After cloning, create a config.php at the root directory with these contents. 
 You can use the parameters from your Database.
+
 ```php
 <?php
 return  [

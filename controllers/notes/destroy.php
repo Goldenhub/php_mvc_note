@@ -1,12 +1,12 @@
 <?php
 
-use Core\{Database, Response};
+use Core\{Database, Response, App};
 
-$config = require "../config.php";
+$db = App::resolver(Database::class);
+
+// dd($db);
+
 $currentuser = 1;
-
-$db = new Database($config["database"]);
-
 $note = $db->query('SELECT * FROM notes WHERE id = :id', [
     ':id' => $_POST['id']
 ])->fetchOne();

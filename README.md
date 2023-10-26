@@ -1,7 +1,9 @@
 # php_mvc_note
+
 Understanding MVC in PHP
 
 ## Using Laracast's introduction to PHP course
+
 - Class
 - Namespace
 - Autoloading using the standard PHP library
@@ -17,8 +19,10 @@ Understanding MVC in PHP
 - PDO
 
 ## Note
-After cloning, create a config.php at the directory with these contents. 
+
+After cloning, create a config.php at the directory with these contents.
 You can use the parameters from your Database.
+
 ```php
 <?php
 return  [

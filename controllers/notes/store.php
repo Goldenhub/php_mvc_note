@@ -1,10 +1,8 @@
 <?php
 
-use Core\{Database, Validator};
+use Core\{Database, Validator, App};
 
-$config = require "../config.php";
-
-$db = new Database($config["database"]);
+$db = App::resolver(Database::class);
 
 
 $note = $_POST['note'];

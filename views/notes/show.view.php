@@ -12,11 +12,8 @@ require base_uri("views/partials/banner.php");
             <?= htmlspecialchars($note['body']) ?>
         </p>
 
-        <form method="POST">
-            <input type="hidden" name="_METHOD" value="DELETE">
-            <input type="hidden" name="id" value="<?= $_GET['id'] ?>">
-            <button  type="submit" class="text-sm text-red-600 my-4 hover:underline">Delete</button>
-        </form>
+        <a class="inline-block my-10 rounded-md bg-gray-800 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" href="/note/edit?id=<?= $note['id'] ?>">Edit</a>
+
 
     </div>
 </main>

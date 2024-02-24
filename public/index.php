@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 use Core\Router;
 
 const BASE_URI = __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR;

@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use Core\Middleware\Guest;
+use Core\Middleware\Auth;
+use Core\Middleware\Middleware;
+
 class Router
 {
     public $routes = [];
@@ -18,12 +22,12 @@ class Router
     {
         return $this->add('PATCH', $uri, $controller);
     }
-    
+
     public function delete($uri, $controller)
     {
         return $this->add('DELETE', $uri, $controller);
     }
-    
+
     public function only($key)
     {
         $this->routes[array_key_last($this->routes)]['middleware'] = $key;
@@ -36,6 +40,9 @@ class Router
         $method = strtoupper($method);
         foreach ($this->routes as $route) {
             if ($route['uri'] === $uri && $route['method'] === $method) {
+                if ($route['middleware']) {
+                    Middleware::resolve($route['middleware']);
+                }
                 exit(require base_uri($route['controller']));
             }
         }

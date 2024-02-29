@@ -18,3 +18,8 @@ $router->patch('/note', 'controllers/notes/update.php');
 
 $router->get('/register', "controllers/registration/create.php")->only('guest');
 $router->post('/register', "controllers/registration/store.php");
+
+$router->get('/session', "controllers/session/create.php")->only('guest');
+$router->post('/session', "controllers/session/store.php")->only('guest');
+
+$router->delete('/session', "controllers/session/destroy.php")->only('auth');

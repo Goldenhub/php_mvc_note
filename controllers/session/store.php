@@ -18,12 +18,11 @@ if(!Validator::string($password, 7, 255)){
 }
 
 if(count($errors)){
-    return view('registration/create.view.php', [
+    return view('session/create.view.php', [
         'errors' => $errors
     ]);
 }
 
-// check if account already exist
 $db = App::resolver(Database::class);
 
 $user = $db->query('SELECT * FROM users WHERE email = :email', [
@@ -31,17 +30,16 @@ $user = $db->query('SELECT * FROM users WHERE email = :email', [
 ])->fetchOne();
 
 if($user){
-    header('Location: /');
-    exit();
-}else {
-    $db->query('INSERT INTO users(email, password) VALUES (:email, :password)', [
-        ':email' => $email,
-        ':password' => password_hash($password, PASSWORD_BCRYPT)
-    ]);
+    if(password_verify($password, $user['password'])){
+        login([
+            'email' => $email
+        ]);
 
-    login($user);
-
-    header('Location: /');
-    exit();
+        header('Location: /');
+        exit();
+    }
 }
 
+return view('session/create.view.php', [
+    'error' => 'No matching account found for that email address and password.'
+]);
